@@ -21,8 +21,23 @@ const Test = () => {
             </div>
 
             {overLayOn && <div className="lightbox rounded-2xl  bg-slate-400 z-50  fixed w-full h-full flex  justify-center items-center">
-                <div>
-                    <button className="bg-white px-3 py-1" onClick={()=> setOverLayOn(false)}>X</button>
+                <div className="relative">
+                    <div className="absolute button-container right-10 top-10">
+                        <div 
+                        className="bg-amber-200 w-27 h-16 rounded-lg flex justify-center items-center
+                        animate-color-spin    
+                        [background:conic-gradient(from_var(--gradient-angle),red,blue,pink)]  
+                        hover:translate-y-1
+                        focus:bg-amber-500
+                        ">
+                            <button 
+                            className="z-10 absolute bg-white  w-25 h-14 rounded-lg z
+                            hover:bg-slate-200
+                            " 
+                            onClick={()=> setOverLayOn(false)}>close</button>
+                        </div>
+                    </div>
+
                     <CardDisplay />
                 </div>
             </div>
