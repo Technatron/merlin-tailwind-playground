@@ -9,7 +9,8 @@ const Test = () => {
     const {cards, overLayOn, setOverLayOn} = useCardContext();
     return (
         <>
-            <div className='mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  justify-center gap-4 max-w-5xl items-center mx-auto'>
+            <div className='mt-24 grid grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]  justify-center gap-3 max-w-md sm:max-w-2xl md:max-w-4xl lg:max-w-7xl items-center '>
+            {/* <div className='mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  justify-center gap-4 max-w-5xl items-center mx-auto'> */}
                 {cards.map((card) => (
                     <Card styling={card.cardStyling} currentCard={card} >
                         <LetterJumpingWrapper text={card.title} styling="font-thunder text-5xl uppercase font-extrabold transition " />
