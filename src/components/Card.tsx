@@ -9,8 +9,14 @@ type CardType = {
 }
 
 const Card = ({children, styling, currentCard}: CardType) => {
+
+  console.log(`bg-[${styling}]`);
+  
   return (
-      <div className={`rounded-2xl h-[20em] bg-amber-50 flex flex-col justify-center items-center text-center gap-2 ${styling} `}>
+      <div 
+      style={
+        { background: `linear-gradient(to right, ${currentCard.gradientStart}, ${currentCard.gradientEnd})` }}
+      className={`rounded-2xl h-[20em] flex flex-col justify-center items-center text-center gap-2 `}>
         {children}
         <CustomButton label={"click"} styling={""} currentCard={currentCard}/>
     </div>
