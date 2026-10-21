@@ -1,11 +1,18 @@
+import type { ReactNode } from "react"
 import CustomButton from "./CustomButton"
+import type { CardData } from "../context/CardContext";
 
+type CardType = {
+  children: ReactNode;
+  styling: string; 
+  currentCard: CardData
+}
 
-const Card = ({children, styling}) => {
+const Card = ({children, styling, currentCard}: CardType) => {
   return (
-    <div className={`rounded-2xl size-50 sm:size-55 md:size-65 bg-amber-50 flex flex-col justify-center items-center text-center gap-4 ${styling}`}>
+      <div className={`rounded-2xl h-[20em] bg-amber-50 flex flex-col justify-center items-center text-center gap-2 ${styling} `}>
         {children}
-        <CustomButton label={"click"} styling={""}/>
+        <CustomButton label={"click"} styling={""} currentCard={currentCard}/>
     </div>
   )
 }
