@@ -7,9 +7,9 @@ const LetterJumpingWrapper = ({text, styling=""}: LetterEffectProps) => {
 
     return(
         
-        <div>
+        <div className="flex gap-1 flex-wrap justify-center">
             {text.split(" ").map( word => {
-                return <span className={`transition-all hover:-translate-y-1 duration-300  ease-in-out ${styling}`}> {word+" "} </span>
+                return <div className={`transition-all hover:-translate-y-1 duration-300 ease-in-out ${styling}`}> {word+" "} </div>
             })}
         </div>
         
