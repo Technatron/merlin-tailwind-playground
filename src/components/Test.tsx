@@ -1,61 +1,34 @@
 
 import Card from "./Card"
 import LetterJumpingWrapper from "./LetterJumpingWrapper"
+import CardDisplay from "./CardDisplay"
+import { useCardContext } from "../context/CardContext"
 
 
 const Test = () => {
-  return (
-    <div className='w-screen min-h-fit bg-slate-600 h-screen flex justify-center items-center gap-4 flex-wrap'>
-        <Card styling="bg-purple-500">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
+    const {cards, overLayOn, setOverLayOn} = useCardContext();
+    return (
+        <>
+            <div className='mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  justify-center gap-4 max-w-5xl items-center mx-auto'>
+                {cards.map((card) => (
+                    <Card styling={card.cardStyling} currentCard={card} >
+                        <LetterJumpingWrapper text={card.title} styling="font-thunder text-5xl uppercase font-extrabold transition " />
+                        <div className="flex justify-between gap-1">
+                            <LetterJumpingWrapper text={card.body} styling="hover:text-white " />
+                        </div>
+                    </Card>
+                ))}
             </div>
-        </Card>
-        <Card styling="bg-green-500">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
+
+            {overLayOn && <div className="lightbox rounded-2xl  bg-slate-400 z-50  fixed w-full h-full flex  justify-center items-center">
+                <div>
+                    <button className="bg-white px-3 py-1" onClick={()=> setOverLayOn(false)}>X</button>
+                    <CardDisplay />
+                </div>
             </div>
-        </Card>
-        <Card styling="bg-blue-500">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
-            </div>
-        </Card>
-        <Card styling="bg-orange-500">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
-            </div>
-        </Card>
-        <Card styling="bg-red-500">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
-            </div>
-        </Card>
-        <Card styling="bg-pink-300">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
-            </div>
-        </Card>
-        <Card styling="bg-green-300">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
-            </div>
-        </Card>
-        <Card styling="bg-blue-300">
-            <LetterJumpingWrapper text="The Future" styling="font-thunder text-5xl uppercase font-extrabold transition "/>
-            <div className="flex justify-between gap-1">
-                <LetterJumpingWrapper text="This is a random sentence I am using to test the Effect" styling="hover:text-white "/>
-            </div>
-        </Card>
-    </div>
-  )
+            }
+        </>
+    )
 }
 
 export default Test
