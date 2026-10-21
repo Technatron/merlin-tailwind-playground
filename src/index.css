@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -14,4 +14,24 @@
         font-family: 'thunder';
         src: url("/fonts/Thunder-VF.otf") format('opentype');
     }
+}
+
+@theme {
+    --animate-color-spin: color-spin 3s linear infinite;
+}
+
+@keyframes color-spin {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
 }
