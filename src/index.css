@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@theme {
+    --font-thunder: 'thunder', sans-serif;
+}
+
+@layer base {
+    @font-face {
+        font-family: 'thunder';
+        src: url("/fonts/Thunder-VF.otf") format('opentype');
+    }
+}
